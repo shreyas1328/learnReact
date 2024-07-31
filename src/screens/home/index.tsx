@@ -25,6 +25,10 @@ export default function Home() {
     navigation("/about");
   };
 
+  const onLang = (): void => {
+    navigation("/lang");
+  };
+
   return (
       <div>
           <b>Home</b>
@@ -44,6 +48,7 @@ export default function Home() {
       <br />
       <br />
       <button onClick={onAbout}>About</button>
+      <button onClick={onLang}>Lang check</button>
       <button onClick={onLogout}>Logout</button>
     </div>
   );

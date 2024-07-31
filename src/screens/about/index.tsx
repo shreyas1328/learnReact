@@ -3,10 +3,12 @@ import { useAppDispatch, useAppSelector } from "../../redux/reduxHooks";
 import { customLoginAction } from "../../redux/slice/loginSlice";
 import { useEffect } from "react";
 import { getAllPosts } from "../../redux/slice/postsSlice";
+import { useTranslation } from "react-i18next";
 
 export default function About() {
   const dispatch = useAppDispatch();
   const navigation = useNavigate();
+  const { t } = useTranslation();
   const posts = useAppSelector((state) => state.posts);
 
   const fetchApi = async (): Promise<void> => {
@@ -29,12 +31,13 @@ export default function About() {
 
   const onReload = () => {
     fetchApi();
-  }
+  };
 
   return (
     <div>
       <b>About</b>
       <br />
+      <p>{t("greeting")}</p>
       <br />
       <button onClick={onHome}>Home</button>
       <button onClick={onReload}>Reload</button>
